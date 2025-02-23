@@ -1,0 +1,17 @@
+{
+  "name": "line-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sendmessage.js",
+  "scripts": {
+    "start": "node sendmessage.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
