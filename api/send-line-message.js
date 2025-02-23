@@ -1,17 +1,16 @@
-const express = require("express");
 const axios = require("axios");
-const cors = require("cors");
-
-const app = express();
-app.use(express.json());
-app.use(cors());
 
 const LINE_API_URL = "https://api.line.me/v2/bot/message/push";
 const CHANNEL_ACCESS_TOKEN = 'DQ+6KCdWi+hgRn4h5CPRYB+6Eb41FANRufSvIg6ljaH/pdcgsKm65CcXg226Vlacbqv+qo/pkPlWmo1i1qoOkPoGuO+9PnF580V08OfFTWwf/pf1OmKd5e3hLRkaltY1ZxHzefci4/B3zTo+tdhFvwdB04t89/1O/w1cDnyilFU=';
 
-app.post("/send-line-message", async (req, res) => {
+module.exports = async (req, res) => {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ message: 'Method Not Allowed' });
+    }
+
     try {
         const { userId, message } = req.body;
+
         const response = await axios.post(
             LINE_API_URL,
             {
@@ -25,12 +24,10 @@ app.post("/send-line-message", async (req, res) => {
                 },
             }
         );
-        res.json({ success: true, data: response.data });
+
+        res.status(200).json({ success: true, data: response.data });
     } catch (error) {
         console.error("Error sending LINE message:", error.response?.data || error.message);
         res.status(500).json({ success: false, error: error.response?.data || error.message });
     }
-});
-
-// Export as Vercel serverless function
-module.exports = app;
+};

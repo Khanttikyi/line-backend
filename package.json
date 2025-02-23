@@ -1,13 +1,8 @@
 {
   "name": "line-backend",
   "version": "1.0.0",
-  "description": "LINE API integration backend",
-  "scripts": {
-    "start": "vercel dev"
-  },
+  "main": "api/send-line-message.js",
   "dependencies": {
-    "axios": "^1.6.0",
-    "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "axios": "^1.6.0"
   }
 }
