@@ -1,16 +1,12 @@
 {
   "name": "line-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "sendmessage.js",
+  "description": "LINE API integration backend",
   "scripts": {
-    "start": "node sendmessage.js"
+    "start": "vercel dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   }
